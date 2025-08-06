@@ -117,7 +117,7 @@ export default function AboutPage() {
     },
     {
       category: "Tools & Platforms",
-      items: ["SAP", "Jira", "Docker", "Git", "Linux", "AWS", "Google Cloud Platform"]
+      items: ["SAP", "Jira", "Docker", "Git"]
     },
     {
       category: "Languages",
@@ -142,7 +142,7 @@ export default function AboutPage() {
           <div className="text-center mb-12">
             <h1 className="text-4xl font-bold mb-4">About Me</h1>
             <p className="text-xl text-gray-400">
-              Document Management & Data Analytics Professional
+              Document Management Consultant
             </p>
           </div>
 
@@ -155,27 +155,25 @@ export default function AboutPage() {
               <div className="flex-1 text-center md:text-left">
                 <h2 className="text-2xl font-bold mb-2">William</h2>
                 <p className="text-gray-400 mb-4">
-                  Document Management Consultant | Data Analytics Specialist
+                  Document Management Consultant 
                 </p>
                 <p className="text-gray-300 mb-4">
-                  I'm a data-driven professional with expertise in document management systems, business intelligence,
-                  and data analytics. My experience spans from implementing enterprise-level document management solutions
-                  at Capgemini to developing data visualization dashboards and conducting research in NLP applications.
-                  I specialize in transforming complex business requirements into scalable technical solutions, with a strong
-                  focus on process optimization and data-driven decision making.
+                  I’m a Civil Engineer with a strong interest in data, automation, and problem-solving. 
+                  Currently working as a Document Management Consultant at Capgemini Engineering, I focus 
+                  on organizing and standardizing technical documentation.
+                  Alongside my main responsibilities, I create tools and dashboards to streamline tasks—
+                  such as Python scripts for data cleaning and document classification using NLP, and Power BI 
+                  reports to improve visibility and decision-making.
                 </p>
                 <div className="flex justify-center md:justify-start space-x-4">
-                  <a href="mailto:willi@example.com" className="text-gray-400 hover:text-primary transition-colors">
+                  <a href="mailto:william_dieter@icloud.com" className="text-gray-400 hover:text-primary transition-colors">
                     <Mail className="w-5 h-5" />
                   </a>
-                  <a href="https://github.com/willi" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-primary transition-colors">
+                  <a href="https://github.com/BillDFrank" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-primary transition-colors">
                     <Github className="w-5 h-5" />
                   </a>
-                  <a href="https://linkedin.com/in/willi" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-primary transition-colors">
+                  <a href="https://www.linkedin.com/in/william-dieter-f-475475104/" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-primary transition-colors">
                     <Linkedin className="w-5 h-5" />
-                  </a>
-                  <a href="https://twitter.com/willi" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-primary transition-colors">
-                    <Twitter className="w-5 h-5" />
                   </a>
                 </div>
               </div>

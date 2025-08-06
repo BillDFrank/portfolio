@@ -3,10 +3,9 @@ import Link from "next/link";
 
 export default function Home() {
   const skills = [
-    { name: "Machine Learning", icon: Brain, level: 90 },
-    { name: "Data Science", icon: Database, level: 85 },
-    { name: "Software Engineering", icon: Code, level: 95 },
-    { name: "Research", icon: BookOpen, level: 80 },
+    { name: "Machine Learning", icon: Brain, level: 80 },
+    { name: "Data Science", icon: Database, level: 80 },
+    { name: "Software Engineering", icon: Code, level: 70 },
   ];
 
   const featuredProjects = [

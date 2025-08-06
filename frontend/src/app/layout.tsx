@@ -15,24 +15,24 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "William's Portfolio - Academic Research & Software Engineering",
+  title: "William Frank's Portfolio",
   description: "A comprehensive portfolio showcasing academic research, software engineering projects, and technical expertise in machine learning and data science.",
-  keywords: ["machine learning", "data science", "software engineering", "academic research", "portfolio"],
-  authors: [{ name: "William", url: "https://github.com/willi" }],
-  creator: "William",
+  keywords: ["machine learning", "data science", "software engineering", "portfolio"],
+  authors: [{ name: "William Frank", url: "https://github.com/BillDFrank" }],
+  creator: "William Frank",
   openGraph: {
     type: "website",
     locale: "en_US",
     url: "https://willi-portfolio.vercel.app",
-    title: "William's Portfolio - Academic Research & Software Engineering",
+    title: "William Frank's Portfolio",
     description: "A comprehensive portfolio showcasing academic research, software engineering projects, and technical expertise.",
-    siteName: "William's Portfolio",
+    siteName: "William Frank's Portfolio",
   },
   twitter: {
     card: "summary_large_image",
-    title: "William's Portfolio",
-    description: "Academic Research & Software Engineering Portfolio",
-    creator: "@willi",
+    title: "William Frank's Portfolio",
+    description: "Portfolio",
+    creator: "@williamfrank",
   },
   robots: {
     index: true,
