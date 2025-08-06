@@ -1,0 +1,154 @@
+@import "tailwindcss";
+
+:root {
+  /* Primary Colors - Academic Dark Theme */
+  --primary-dark: #0a0a0a;
+  --primary-gray: #1a1a1a;
+  --secondary-gray: #2a2a2a;
+  --accent-gray: #3a3a3a;
+  
+  /* Text Colors */
+  --text-primary: #e0e0e0;
+  --text-secondary: #b0b0b0;
+  --text-muted: #808080;
+  --text-accent: #ffffff;
+  
+  /* Accent Colors */
+  --accent-blue: #3b82f6;
+  --accent-purple: #8b5cf6;
+  --accent-green: #10b981;
+  --accent-orange: #f59e0b;
+  --accent-red: #ef4444;
+  
+  /* Status Colors */
+  --success: #10b981;
+  --warning: #f59e0b;
+  --error: #ef4444;
+  --info: #3b82f6;
+  
+  /* Typography */
+  --font-mono: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
+  --font-sans: 'Inter', 'Segoe UI', 'Roboto', sans-serif;
+}
+
+@theme inline {
+  --color-background: var(--primary-dark);
+  --color-foreground: var(--text-primary);
+  --color-card: var(--primary-gray);
+  --color-card-foreground: var(--text-primary);
+  --color-popover: var(--primary-gray);
+  --color-popover-foreground: var(--text-primary);
+  --color-primary: var(--accent-blue);
+  --color-primary-foreground: var(--text-accent);
+  --color-secondary: var(--secondary-gray);
+  --color-secondary-foreground: var(--text-secondary);
+  --color-muted: var(--accent-gray);
+  --color-muted-foreground: var(--text-muted);
+  --color-accent: var(--text-accent);
+  --color-accent-foreground: var(--text-accent);
+  --color-destructive: var(--error);
+  --color-destructive-foreground: var(--text-accent);
+  --color-border: var(--secondary-gray);
+  --color-input: var(--primary-gray);
+  --color-ring: var(--accent-blue);
+  
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-mono);
+}
+
+* {
+  border-color: var(--color-border);
+}
+
+body {
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+  font-family: var(--font-sans);
+  line-height: 1.6;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--primary-gray);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--accent-gray);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-muted);
+}
+
+/* Code blocks styling */
+pre {
+  background: var(--primary-gray);
+  border: 1px solid var(--secondary-gray);
+  border-radius: 8px;
+  padding: 1rem;
+  overflow-x: auto;
+}
+
+code {
+  font-family: var(--font-mono);
+  font-size: 0.875em;
+}
+
+/* Typography improvements */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--text-accent);
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+h1 { font-size: 2.25rem; }
+h2 { font-size: 1.875rem; }
+h3 { font-size: 1.5rem; }
+h4 { font-size: 1.25rem; }
+h5 { font-size: 1.125rem; }
+h6 { font-size: 1rem; }
+
+/* Links */
+a {
+  color: var(--accent-blue);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+a:hover {
+  color: var(--text-accent);
+}
+
+/* Focus states */
+*:focus {
+  outline: 2px solid var(--accent-blue);
+  outline-offset: 2px;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.3s ease-out;
+}
+
+/* Grid layouts */
+.grid-cols-auto-fit {
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+/* Responsive utilities */
+@media (max-width: 768px) {
+  .grid-cols-auto-fit {
+    grid-template-columns: 1fr;
+  }
+}
