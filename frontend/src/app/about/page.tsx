@@ -294,11 +294,11 @@ export default function AboutPage() {
             <h3 className="text-2xl font-bold mb-4">Let's Connect</h3>
             <p className="text-gray-400 mb-6">
               I'm always interested in discussing opportunities in data analytics,
-              document management systems, or business intelligence projects.
+              data science, or business intelligence projects.
             </p>
             <a
-              href="mailto:willi@example.com"
-              className="inline-flex items-center px-6 py-3 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors"
+              href="mailto:william_dieter@icloud.com"
+              className="inline-flex items-center px-6 py-3 text-white rounded-lg hover:bg-primary/90 transition-colors"
             >
               <Mail className="w-5 h-5 mr-2" />
               Get In Touch

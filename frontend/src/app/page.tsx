@@ -1,12 +1,12 @@
-import { Code, Database, Brain, BookOpen, Github, Linkedin, Mail } from "lucide-react";
+import { Cpu, BarChart3, MessageSquareCode, LineChart, BookOpen, Github, Linkedin, Mail } from "lucide-react";
 import Link from "next/link";
 
 export default function Home() {
   const skills = [
-    { name: "Machine Learning", icon: Brain, level: 80 },
-    { name: "Data Science", icon: Database, level: 70 },
-    { name: "NLP", icon: Code, level: 70 },
-    { name: "Data Analysis", icon: Code, level: 90 }
+    { name: "Machine Learning", icon: Cpu, level: 80 },
+    { name: "Data Science", icon: BarChart3, level: 70 },
+    { name: "NLP", icon: MessageSquareCode, level: 70 },
+    { name: "Data Analysis", icon: LineChart, level: 90 },
   ];
 
   const featuredProjects = [
