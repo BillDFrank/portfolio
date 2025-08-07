@@ -4,8 +4,9 @@ import Link from "next/link";
 export default function Home() {
   const skills = [
     { name: "Machine Learning", icon: Brain, level: 80 },
-    { name: "Data Science", icon: Database, level: 80 },
-    { name: "Software Engineering", icon: Code, level: 70 },
+    { name: "Data Science", icon: Database, level: 70 },
+    { name: "NLP", icon: Code, level: 70 },
+    { name: "Data Analysis", icon: Code, level: 90 }
   ];
 
   const featuredProjects = [
@@ -37,14 +38,10 @@ export default function Home() {
         <div className="container mx-auto px-4 py-20 relative z-10">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-5xl md:text-6xl font-bold text-white mb-6 animate-fade-in">
-              William's Academic Portfolio
+              William Frank's Portfolio
             </h1>
             <p className="text-xl md:text-2xl text-gray-300 mb-8 animate-fade-in">
-              Machine Learning Researcher & Software Engineer
-            </p>
-            <p className="text-lg text-gray-400 mb-12 max-w-2xl mx-auto animate-fade-in">
-              Exploring the intersection of academic research and practical software engineering 
-              to build intelligent systems that solve real-world problems.
+              Machine Learning & Data Scientist
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in">
               <Link
@@ -52,12 +49,6 @@ export default function Home() {
                 className="px-8 py-3 border border-primary text-primary rounded-lg hover:bg-primary/10 transition-colors"
               >
                 View Projects
-              </Link>
-              <Link
-                href="/research"
-                className="px-8 py-3 border border-primary text-primary rounded-lg hover:bg-primary/10 transition-colors"
-              >
-                Research Papers
               </Link>
             </div>
           </div>
@@ -121,27 +112,23 @@ export default function Home() {
       <section className="py-20 bg-card">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold mb-8">Let's Connect</h2>
-          <p className="text-gray-400 mb-8 max-w-2xl mx-auto">
-            I'm always interested in discussing new opportunities, research collaborations, 
-            or interesting technical challenges.
-          </p>
           <div className="flex justify-center space-x-6">
             <a
-              href="https://github.com/willi"
+              href="https://github.com/BillDFrank"
               className="p-3 bg-secondary-gray rounded-full hover:bg-primary/10 transition-colors"
               aria-label="GitHub"
             >
               <Github className="w-6 h-6" />
             </a>
             <a
-              href="https://linkedin.com/in/willi"
+              href="https://www.linkedin.com/in/william-dieter-f-475475104/"
               className="p-3 bg-secondary-gray rounded-full hover:bg-primary/10 transition-colors"
               aria-label="LinkedIn"
             >
               <Linkedin className="w-6 h-6" />
             </a>
             <a
-              href="mailto:willi@example.com"
+              href="mailto:william_dieter@icloud.com"
               className="p-3 bg-secondary-gray rounded-full hover:bg-primary/10 transition-colors"
               aria-label="Email"
             >

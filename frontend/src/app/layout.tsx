@@ -90,15 +90,15 @@ export default function RootLayout({
           <footer className="border-t border-border bg-card/50">
             <div className="container mx-auto px-4 py-8">
               <div className="text-center text-muted-foreground">
-                <p>&copy; 2025 William's Portfolio. Built with Next.js and Tailwind CSS.</p>
+                <p>&copy; 2025 William Frank's Portfolio. Built with Next.js and Tailwind CSS.</p>
                 <div className="mt-2 space-x-4">
-                  <a href="https://github.com/willi" className="hover:text-primary transition-colors">
+                  <a href="https://github.com/BillDFrank" className="hover:text-primary transition-colors">
                     GitHub
                   </a>
-                  <a href="https://linkedin.com/in/willi" className="hover:text-primary transition-colors">
+                  <a href="https://www.linkedin.com/in/william-dieter-f-475475104/" className="hover:text-primary transition-colors">
                     LinkedIn
                   </a>
-                  <a href="mailto:willi@example.com" className="hover:text-primary transition-colors">
+                  <a href="mailto:william_dieter@icloud.com" className="hover:text-primary transition-colors">
                     Email
                   </a>
                 </div>

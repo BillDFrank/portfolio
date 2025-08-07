@@ -1,4 +1,5 @@
-# Data Science Portfolio Development - Action Plan
+-------
+# William Frank's Portfolio - Action Plan
 
 ## Executive Summary
 This action plan provides a step-by-step roadmap to build and deploy a professional data science portfolio following the zero-cost approach outlined in `portfolio-design-guide.md`. The plan prioritizes laptop development first, followed by Home Assistant Green deployment.
@@ -18,8 +19,9 @@ This action plan provides a step-by-step roadmap to build and deploy a professio
 - Python: v3.12.1 (meets 3.11+ requirement)
 - Docker: v28.3.0 installed and running
 - Backend: FastAPI setup with SQLAlchemy, Alembic migrations, and project CRUD endpoints
+-------
 - Frontend: Next.js 15.4.5 with TypeScript, Tailwind CSS, and complete page structure
-- Pages: Home, Projects, Research, About, Contact - all implemented with dark theme
+- Pages: Home, Projects, About, Contact - all implemented with dark theme
 
 ### 1.2 Frontend Development Setup
 - [x] Initialize Next.js 14 project with TypeScript and Tailwind CSS

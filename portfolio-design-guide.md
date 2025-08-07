@@ -1,7 +1,9 @@
-# William Dieter Frank - Data Science Portfolio Design Guide
+-------
+# William Frank's Porfolio
 
 ## Executive Summary
-A professional, academic-style portfolio website designed to showcase data science expertise in machine learning, NLP, RAG, and data visualization. The site will feature interactive project demonstrations, Jupyter notebook integration, and a sophisticated dark-themed design optimized for technical content.
+-------
+A professional, academic-style portfolio website designed to showcase expertise in Machine Learning - NLP - Data Science - Data Analysis. The site will feature interactive project demonstrations, Jupyter notebook integration, and a sophisticated dark-themed design optimized for technical content.
 
 ## System Architecture Overview
 
@@ -116,9 +118,7 @@ graph TB
 │   │   ├── Data Visualization
 │   │   └── Research
 │   └── Individual Project Pages (/projects/[slug])
-├── Research (/research)
-│   ├── Papers (/research/papers)
-│   └── Notebooks (/research/notebooks)
+-------
 ├── Blog (/blog)
 ├── Contact (/contact)
 └── Resume (/resume.pdf)
@@ -129,8 +129,8 @@ graph TB
 const navigation = [
   { name: 'Home', href: '/', icon: 'Home' },
   { name: 'About', href: '/about', icon: 'User' },
+-------
   { name: 'Projects', href: '/projects', icon: 'Code' },
-  { name: 'Research', href: '/research', icon: 'Book' },
   { name: 'Blog', href: '/blog', icon: 'FileText' },
   { name: 'Contact', href: '/contact', icon: 'Mail' }
 ]
@@ -142,12 +142,13 @@ const navigation = [
 ```typescript
 interface Project {
   id: string
+-------
   slug: string
-  title: string
-  description: string
-  category: 'ml' | 'nlp' | 'visualization' | 'research'
-  technologies: string[]
-  thumbnail: string
+ title: string
+ description: string
+ category: 'ml' | 'nlp' | 'visualization'
+ technologies: string[]
+ thumbnail: string
   demoUrl?: string
   githubUrl: string
   notebookUrl?: string
@@ -515,14 +516,20 @@ sudo apt-get install docker-compose-plugin
 ```bash
 # Edit hosts file for local development
 sudo nano /etc/hosts
-# Add: 192.168.1.100 williamfrank.local
+-------
+-------
+-------
+# Add: 192.168.1.100 williamfranksportfolio.local
 ```
 
 #### 3. SSL Certificate (Let's Encrypt)
 ```bash
 # Install certbot for free SSL
+-------
 sudo apt-get install certbot
-sudo certbot certonly --standalone -d williamfrank.local
+-------
+-------
+sudo certbot certonly --standalone -d williamfranksportfolio.local
 ```
 
 #### 4. Optimized Docker Configuration
@@ -588,13 +595,19 @@ jobs:
 
 ### Zero-Cost Domain Options
 
+-------
 1. **Free Subdomains**:
-   - williamfrank.duckdns.org
+-------
+-------
+   - williamfranksportfolio.duckdns.org
    - williamfrank.ddns.net
    - williamfrank.localhost.run
 
+-------
 2. **GitHub Pages Domain**:
-   - williamfrank.github.io
+-------
+-------
+   - williamfranksportfolio.github.io
 
 3. **Local Network Access**:
    - http://homeassistant.local:3000
@@ -868,6 +881,8 @@ This portfolio will run entirely on your existing Home Assistant Green with:
 - **Automated backups**
 - **Performance monitoring**
 
+-------
+-------
 The system is designed to be self-sufficient, secure, and professional-grade while leveraging only free services and your existing hardware investment.
 
 This guide provides a complete roadmap for building a professional data science portfolio with zero ongoing costs, perfect for showcasing your expertise while maintaining complete control over your data and infrastructure.
