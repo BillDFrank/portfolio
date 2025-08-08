@@ -1,4 +1,3 @@
--------
 # William Frank's Portfolio - Action Plan
 
 ## Executive Summary
@@ -21,7 +20,7 @@ This action plan provides a step-by-step roadmap to build and deploy a professio
 - Backend: FastAPI setup with SQLAlchemy, Alembic migrations, and project CRUD endpoints
 -------
 - Frontend: Next.js 15.4.5 with TypeScript, Tailwind CSS, and complete page structure
-- Pages: Home, Projects, About, Contact - all implemented with dark theme
+- Pages: Home, Projects, About, Contact, Research, Jupyter Notebook - all implemented with dark theme
 
 ### 1.2 Frontend Development Setup
 - [x] Initialize Next.js 14 project with TypeScript and Tailwind CSS
@@ -35,7 +34,8 @@ This action plan provides a step-by-step roadmap to build and deploy a professio
    │   │   ├── projects/page.tsx
    │   │   ├── research/page.tsx
    │   │   ├── about/page.tsx
-   │   │   └── contact/page.tsx
+   │   │   ├── contact/page.tsx
+   │   │   └── jupyter-notebook/page.tsx
    │   ├── components/
    │   ├── lib/
    │   ├── styles/
@@ -55,45 +55,65 @@ This action plan provides a step-by-step roadmap to build and deploy a professio
 - [x] Create data visualization components
 
 ### 1.5 Content & Data Setup
-- [ ] Create sample project data following Project interface
-- [ ] Prepare 2-3 sample data science projects with descriptions
-- [ ] Set up basic project filtering by category
-- [ ] Create placeholder pages for all navigation items
+- [x] Create sample project data following Project interface
+- [x] Prepare 2-3 sample data science projects with descriptions
+- [x] Set up basic project filtering by category
+- [x] Create placeholder pages for all navigation items
+- [x] Implement Jupyter Notebook viewer with proper styling
 
 ### 1.6 Local Testing & Optimization
-- [ ] Test frontend on localhost:3000
+- [x] Test frontend on localhost:3000
 - [ ] Test backend API on localhost:8000
 - [ ] Verify frontend-backend communication
-- [ ] Test responsive design on different screen sizes
+- [x] Test responsive design on different screen sizes
 
-## Phase 2: Home Assistant Green Preparation (Priority 2)
+## Phase 2: Data Integration & Backend Connection
 
-### 2.1 Hardware & Network Setup
+### 2.1 Database Setup
+- [ ] Create sample data in SQLite database
+- [ ] Verify database schema matches frontend requirements
+- [ ] Test CRUD operations for projects
+
+### 2.2 API Integration
+- [ ] Connect frontend projects page to backend API
+- [ ] Implement project details page with dynamic routing
+- [ ] Add loading states and error handling
+- [ ] Test API endpoints with sample data
+
+### 2.3 Advanced Features
+- [ ] Implement search functionality with backend support
+- [ ] Add project filtering by category, status, and tags
+- [ ] Create admin interface for managing projects
+- [ ] Implement form validation and submission
+
+## Phase 3: Home Assistant Green Preparation (Priority 2)
+
+### 3.1 Hardware & Network Setup
 - [ ] SSH into Home Assistant Green: `ssh root@homeassistant.local`
 - [ ] Verify Docker installation and ARM compatibility
 - [ ] Configure static IP address for consistent access
 - [ ] Set up DuckDNS dynamic DNS service
 
-### 2.2 ARM-Optimized Build Configuration
+### 3.2 ARM-Optimized Build Configuration
 - [ ] Create ARM-compatible Dockerfiles
 - [ ] Configure Docker resource limits for 2GB RAM constraint
 - [ ] Set up SQLite database migration from development
 
-### 2.3 SSL & Security Setup
+### 3.3 SSL & Security Setup
 - [ ] Install Let's Encrypt SSL certificates
 - [ ] Configure Nginx reverse proxy with HTTPS
 - [ ] Set up firewall rules for Home Assistant Green
 - [ ] Configure CORS for production domain
 
-### 2.4 Monitoring & Backup
+### 3.4 Monitoring & Backup
 - [ ] Deploy Uptime Kuma for monitoring
 - [ ] Set up automated GitHub Actions for deployment
 - [ ] Configure log rotation and cleanup
 - [ ] Create USB backup script for Home Assistant Green
 
-## Phase 3: Content & Final Testing
+## Phase 4: Content & Final Testing
 
-### 3.1 Project Content Creation
+### 4.1 Project Content Creation
 - [ ] Create 3-5 complete data science projects with:
   - Problem statements
   - Technical approaches
@@ -101,13 +121,13 @@ This action plan provides a step-by-step roadmap to build and deploy a professio
   - Jupyter notebook integration
   - GitHub repository links
 
-### 3.2 SEO & Analytics
+### 4.2 SEO & Analytics
 - [ ] Configure Google Analytics 4
 - [ ] Generate XML sitemap
 - [ ] Set up Open Graph meta tags
 - [ ] Test social media sharing
 
-### 3.3 Final Testing
+### 4.3 Final Testing
 - [ ] Test complete user journey on laptop
 - [ ] Deploy to Home Assistant Green
 - [ ] Test external access via DuckDNS
@@ -178,4 +198,4 @@ If Home Assistant Green becomes unavailable:
 
 ---
 
-**Next Action**: Ready to begin Phase 1 - create initial project structure and start laptop development.
+**Next Action**: Complete backend API testing and implement frontend-backend communication for projects data.
