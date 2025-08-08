@@ -44,7 +44,52 @@ jobs:
           password: ${{ secrets.HOME_ASSISTANT_PASSWORD }}
           port: 22
           script: |
-            cd /home/portfolio
-            git pull
-            docker-compose pull
-            docker-compose up -d --build
+            echo "=== Starting Deployment ==="
+            
+            # Ensure we're in the home directory
+            cd /home
+            
+            # Check if portfolio directory exists and is a git repository
+            if [ -d "portfolio/.git" ]; then
+              echo "Repository exists, pulling latest changes..."
+              cd portfolio
+              git pull origin main
+            else
+              echo "Repository not found, cloning..."
+              # Remove directory if it exists but isn't a git repo
+              if [ -d "portfolio" ]; then
+                echo "Removing existing non-git portfolio directory..."
+                rm -rf portfolio
+              fi
+              # Clone the repository
+              git clone https://github.com/${{ github.repository }}.git portfolio
+              cd portfolio
+            fi
+            
+            echo ""
+            echo "Current directory: $(pwd)"
+            echo "Repository contents:"
+            ls -la
+            
+            # Check for docker-compose.yml in the docker directory
+            if [ -f "docker/docker-compose.yml" ]; then
+              echo ""
+              echo "Found docker-compose.yml in docker/ directory"
+              cd docker
+              
+              # Pull the latest images
+              echo "Pulling latest Docker images..."
+              docker-compose pull
+              
+              # Start the services
+              echo "Starting services..."
+              docker-compose up -d --build
+              
+              echo ""
+              echo "Deployment complete!"
+              echo "Running containers:"
+              docker ps
+            else
+              echo "ERROR: docker/docker-compose.yml not found!"
+              exit 1
+            fi
