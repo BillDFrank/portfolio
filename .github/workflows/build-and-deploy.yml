@@ -1,0 +1,39 @@
+# .github/workflows/build-and-deploy.yml
+name: Build and Deploy to Home Assistant Green
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Build and push Docker images
+        uses: docker/build-push-action@v2
+        with:
+          context: .
+          file: ./docker/Dockerfile.frontend
+          push: true
+          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/portfolio-frontend:latest
+
+      - name: Build and push backend image
+        uses: docker/build-push-action@v2
+        with:
+          context: .
+          file: ./docker/Dockerfile.backend
+          push: true
+          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/portfolio-backend:latest
+          
+      - name: Deploy to Home Assistant Green
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOME_ASSISTANT_HOST }}
+          username: ${{ secrets.HOME_ASSISTANT_USERNAME }}
+          key: ${{ secrets.HOME_ASSISTANT_SSH_KEY }}
+          script: |
+            cd /opt/portfolio
+            git pull
+            docker-compose pull
+            docker-compose up -d --build
