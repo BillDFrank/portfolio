@@ -35,13 +35,14 @@ jobs:
           file: ./docker/Dockerfile.backend
           push: true
           tags: ${{ secrets.DOCKER_HUB_USERNAME }}/portfolio-backend:latest
-          
-      - name: Deploy to Home Assistant Green
+
+      - name: Deploy to Home Assistant Green (password auth)
         uses: appleboy/ssh-action@v1.0.3
         with:
           host: ${{ secrets.HOME_ASSISTANT_HOST }}
           username: ${{ secrets.HOME_ASSISTANT_USERNAME }}
-          key: ${{ secrets.HOME_ASSISTANT_SSH_KEY }}
+          password: ${{ secrets.HOME_ASSISTANT_PASSWORD }}
+          port: 22
           script: |
             cd /opt/portfolio
             git pull
