@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import { Search, ExternalLink, Download, Calendar, Award } from "lucide-react";
-import Link from "next/link";
 
 interface ResearchPaper {
   id: string;

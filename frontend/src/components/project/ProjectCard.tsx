@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import { Card, CardContent, CardHeader, CardTitle } from '../ui/Card';
-import { CodeBlock } from '../ui/CodeBlock';
 
 interface ProjectCardProps {
   slug: string;
