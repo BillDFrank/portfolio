@@ -1,13 +1,17 @@
--------
+---
+
 # William Frank's Porfolio
 
 ## Executive Summary
--------
+
+---
+
 A professional, academic-style portfolio website designed to showcase expertise in Machine Learning - NLP - Data Science - Data Analysis. The site will feature interactive project demonstrations, Jupyter notebook integration, and a sophisticated dark-themed design optimized for technical content.
 
 ## System Architecture Overview
 
 ### Technology Stack
+
 ```
 Frontend Framework: Next.js 14 (React 18)
 Styling: Tailwind CSS + Framer Motion
@@ -17,26 +21,27 @@ Deployment: Docker + Vercel (frontend) + Railway/Render (backend)
 ```
 
 ### Core Architecture Diagram
+
 ```mermaid
 graph TB
     subgraph "Client Layer"
         A[Next.js Frontend] --> B[Static Assets]
         A --> C[API Routes]
     end
-    
+
     subgraph "API Layer"
         C --> D[FastAPI Backend]
         D --> E[ML Models]
         D --> F[Data Processing]
         D --> G[Notebook Renderer]
     end
-    
+
     subgraph "Data Layer"
         D --> H[PostgreSQL]
         D --> I[Redis Cache]
         D --> J[File Storage/S3]
     end
-    
+
     subgraph "External Services"
         D --> K[GitHub API]
         D --> L[Jupyter NBConvert]
@@ -46,6 +51,7 @@ graph TB
 ## Design System & Visual Guidelines
 
 ### Color Palette (Academic Dark Theme)
+
 ```css
 /* Primary Colors */
 --primary-dark: #0a0a0a        /* Background */
@@ -72,6 +78,7 @@ graph TB
 ```
 
 ### Typography Scale
+
 ```css
 /* Font Family */
 --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif
@@ -90,6 +97,7 @@ graph TB
 ```
 
 ### Spacing System
+
 ```css
 --space-1: 0.25rem   /* 4px */
 --space-2: 0.5rem    /* 8px */
@@ -107,6 +115,7 @@ graph TB
 ## Website Structure & Navigation
 
 ### Page Hierarchy
+
 ```
 /
 ├── Home (/)
@@ -125,6 +134,7 @@ graph TB
 ```
 
 ### Navigation Structure
+
 ```typescript
 const navigation = [
   { name: 'Home', href: '/', icon: 'Home' },
@@ -139,6 +149,7 @@ const navigation = [
 ## Project Showcase Architecture
 
 ### Project Data Structure
+
 ```typescript
 interface Project {
   id: string
@@ -177,6 +188,7 @@ interface Visualization {
 ```
 
 ### Interactive Features
+
 1. **Jupyter Notebook Renderer**: Convert .ipynb to interactive web format
 2. **Live Model Demos**: Deployed ML models with API endpoints
 3. **Interactive Charts**: D3.js/React-based visualizations
@@ -186,6 +198,7 @@ interface Visualization {
 ## Backend API Design
 
 ### FastAPI Endpoints
+
 ```python
 # Project Management
 GET    /api/projects                    # List all projects
@@ -213,6 +226,7 @@ GET    /api/analytics/views            # Get page view analytics
 ```
 
 ### Database Schema
+
 ```sql
 -- Projects table
 CREATE TABLE projects (
@@ -260,6 +274,7 @@ CREATE TABLE contact_messages (
 ## Component Architecture
 
 ### Reusable Components
+
 ```
 components/
 ├── ui/
@@ -291,6 +306,7 @@ components/
 ### Key Features Implementation
 
 #### 1. Jupyter Notebook Integration
+
 ```typescript
 // Notebook renderer component
 const NotebookViewer = dynamic(
@@ -299,7 +315,7 @@ const NotebookViewer = dynamic(
 )
 
 // Usage in project detail page
-<NotebookViewer 
+<NotebookViewer
   notebookUrl={project.notebookUrl}
   enableInteraction={true}
   theme="dark"
@@ -307,58 +323,56 @@ const NotebookViewer = dynamic(
 ```
 
 #### 2. Interactive Model Demo
+
 ```typescript
 // Model prediction component
 const ModelDemo = ({ modelId }: { modelId: string }) => {
-  const [input, setInput] = useState('')
-  const [prediction, setPrediction] = useState(null)
-  const [loading, setLoading] = useState(false)
+  const [input, setInput] = useState("");
+  const [prediction, setPrediction] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   const handlePredict = async () => {
-    setLoading(true)
-    const response = await fetch('/api/models/predict', {
-      method: 'POST',
-      body: JSON.stringify({ modelId, input })
-    })
-    const result = await response.json()
-    setPrediction(result)
-    setLoading(false)
-  }
+    setLoading(true);
+    const response = await fetch("/api/models/predict", {
+      method: "POST",
+      body: JSON.stringify({ modelId, input }),
+    });
+    const result = await response.json();
+    setPrediction(result);
+    setLoading(false);
+  };
 
   return (
     <div className="model-demo">
-      <textarea 
-        value={input} 
+      <textarea
+        value={input}
         onChange={(e) => setInput(e.target.value)}
         placeholder="Enter input data..."
       />
       <button onClick={handlePredict} disabled={loading}>
-        {loading ? 'Predicting...' : 'Run Model'}
+        {loading ? "Predicting..." : "Run Model"}
       </button>
       {prediction && <PredictionResult data={prediction} />}
     </div>
-  )
-}
+  );
+};
 ```
 
 #### 3. Data Visualization Dashboard
+
 ```typescript
 // Interactive chart component
-const InteractiveChart = ({ 
-  data, 
-  chartType = 'line',
-  interactive = true 
-}) => {
-  const [chartData, setChartData] = useState(data)
-  
+const InteractiveChart = ({ data, chartType = "line", interactive = true }) => {
+  const [chartData, setChartData] = useState(data);
+
   return (
     <div className="chart-container">
-      <ChartControls 
+      <ChartControls
         onFilterChange={setChartData}
         availableFilters={data.filters}
       />
       <ResponsiveContainer width="100%" height={400}>
-        {chartType === 'line' && (
+        {chartType === "line" && (
           <LineChart data={chartData}>
             <CartesianGrid strokeDasharray="3 3" />
             <XAxis dataKey="x" />
@@ -369,13 +383,14 @@ const InteractiveChart = ({
         )}
       </ResponsiveContainer>
     </div>
-  )
-}
+  );
+};
 ```
 
 ## Development Workflow
 
 ### Project Structure
+
 ```
 portfolio/
 ├── frontend/
@@ -403,6 +418,7 @@ portfolio/
 ```
 
 ### Development Setup
+
 ```bash
 # 1. Clone repository
 git clone <repository-url>
@@ -434,11 +450,12 @@ cp .env.example .env
 ### Zero-Cost Deployment Architecture
 
 #### Primary Hosting: Home Assistant Green
+
 Your Home Assistant Green can serve as the primary host for both frontend and backend:
 
 ```yaml
 # docker-compose.home-assistant.yml
-version: '3.8'
+version: "3.8"
 services:
   portfolio-frontend:
     build:
@@ -449,7 +466,7 @@ services:
     environment:
       - NEXT_PUBLIC_API_URL=http://homeassistant.local:8000
     restart: unless-stopped
-  
+
   portfolio-backend:
     build:
       context: ./backend
@@ -462,7 +479,7 @@ services:
     volumes:
       - ./data:/app/data
     restart: unless-stopped
-  
+
   nginx:
     image: nginx:alpine
     ports:
@@ -480,18 +497,21 @@ services:
 #### Free Cloud Alternatives (Backup/Redundancy)
 
 **Frontend Options:**
+
 - **GitHub Pages**: Free static hosting for Next.js static export
 - **Vercel Free Tier**: 100GB bandwidth/month
 - **Netlify Free**: 100GB bandwidth/month
 - **Cloudflare Pages**: Unlimited bandwidth
 
 **Backend Options:**
+
 - **Deta Space**: Free Python app hosting (500MB storage)
 - **Railway Free Tier**: $5 credit/month
 - **Render Free**: 512MB RAM, sleeps after 15min inactivity
 - **Fly.io Free**: 3 shared CPUs, 256MB RAM
 
 **Database Options:**
+
 - **SQLite**: File-based, perfect for Home Assistant Green
 - **Deta Base**: Free NoSQL database
 - **Supabase Free**: 500MB PostgreSQL
@@ -500,6 +520,7 @@ services:
 ### Home Assistant Green Setup Guide
 
 #### 1. Install Docker on Home Assistant Green
+
 ```bash
 # SSH into Home Assistant Green
 ssh root@homeassistant.local
@@ -513,6 +534,7 @@ sudo apt-get install docker-compose-plugin
 ```
 
 #### 2. Configure Local Domain
+
 ```bash
 # Edit hosts file for local development
 sudo nano /etc/hosts
@@ -523,6 +545,7 @@ sudo nano /etc/hosts
 ```
 
 #### 3. SSL Certificate (Let's Encrypt)
+
 ```bash
 # Install certbot for free SSL
 -------
@@ -533,6 +556,7 @@ sudo certbot certonly --standalone -d williamfranksportfolio.local
 ```
 
 #### 4. Optimized Docker Configuration
+
 ```dockerfile
 # Dockerfile.frontend (optimized for ARM)
 FROM node:18-alpine AS builder
@@ -564,6 +588,7 @@ CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]
 ### Free CI/CD Pipeline
 
 #### GitHub Actions (Free)
+
 ```yaml
 # .github/workflows/build-and-deploy.yml
 name: Build and Deploy to Home Assistant Green
@@ -576,18 +601,18 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      
+
       - name: Build frontend
         run: |
           cd frontend
           npm ci
           npm run build
-          
+
       - name: Build backend
         run: |
           cd backend
           pip install -r requirements.txt
-          
+
       - name: Deploy to Home Assistant Green
         run: |
           ssh root@homeassistant.local 'cd /opt/portfolio && git pull && docker-compose up -d --build'
@@ -595,19 +620,27 @@ jobs:
 
 ### Zero-Cost Domain Options
 
--------
-1. **Free Subdomains**:
--------
--------
-   - williamfranksportfolio.duckdns.org
-   - williamfrank.ddns.net
-   - williamfrank.localhost.run
+---
 
--------
+1. **Free Subdomains**:
+
+---
+
+---
+
+- williamfranksportfolio.duckdns.org
+- williamfrank.ddns.net
+- williamfrank.localhost.run
+
+---
+
 2. **GitHub Pages Domain**:
--------
--------
-   - williamfranksportfolio.github.io
+
+---
+
+---
+
+- williamfranksportfolio.github.io
 
 3. **Local Network Access**:
    - http://homeassistant.local:3000
@@ -616,11 +649,13 @@ jobs:
 ### Performance Optimization for Home Assistant Green
 
 #### Resource Constraints
+
 - **CPU**: ARM Cortex-A53 quad-core 1.5GHz
 - **RAM**: 2GB DDR4
 - **Storage**: 32GB eMMC
 
 #### Optimizations Applied
+
 ```yaml
 # docker-compose.yml with resource limits
 services:
@@ -629,17 +664,18 @@ services:
       resources:
         limits:
           memory: 512M
-          cpus: '0.5'
-  
+          cpus: "0.5"
+
   portfolio-backend:
     deploy:
       resources:
         limits:
           memory: 512M
-          cpus: '0.5'
+          cpus: "0.5"
 ```
 
 #### Static Site Generation
+
 ```json
 // next.config.js for static export
 module.exports = {
@@ -667,20 +703,21 @@ module.exports = {
 
 ### Complete Zero-Cost Stack
 
-| Component | Free Option | Resource Usage |
-|-----------|-------------|----------------|
-| **Frontend** | Home Assistant Green + Nginx | 512MB RAM |
-| **Backend** | FastAPI on Home Assistant Green | 512MB RAM |
-| **Database** | SQLite (file-based) | 50MB storage |
-| **Domain** | DuckDNS subdomain | Free |
-| **SSL** | Let's Encrypt | Free |
-| **CDN** | Cloudflare (optional) | Free |
-| **Monitoring** | Uptime Kuma | 256MB RAM |
-| **Total** | | ~1.5GB RAM, 1GB storage |
+| Component      | Free Option                     | Resource Usage          |
+| -------------- | ------------------------------- | ----------------------- |
+| **Frontend**   | Home Assistant Green + Nginx    | 512MB RAM               |
+| **Backend**    | FastAPI on Home Assistant Green | 512MB RAM               |
+| **Database**   | SQLite (file-based)             | 50MB storage            |
+| **Domain**     | DuckDNS subdomain               | Free                    |
+| **SSL**        | Let's Encrypt                   | Free                    |
+| **CDN**        | Cloudflare (optional)           | Free                    |
+| **Monitoring** | Uptime Kuma                     | 256MB RAM               |
+| **Total**      |                                 | ~1.5GB RAM, 1GB storage |
 
 ## Performance Optimization
 
 ### Frontend Optimizations
+
 - **Static Generation**: Use Next.js SSG for project pages
 - **Image Optimization**: Next.js Image component with blur placeholders
 - **Code Splitting**: Dynamic imports for heavy components
@@ -688,6 +725,7 @@ module.exports = {
 - **CDN**: Cloudflare for static assets
 
 ### Backend Optimizations
+
 - **Database Indexing**: Strategic indexes on frequently queried fields
 - **Redis Caching**: Cache rendered notebooks and API responses
 - **Rate Limiting**: Prevent API abuse
@@ -697,6 +735,7 @@ module.exports = {
 ## Security Considerations
 
 ### Backend Security
+
 - **Authentication**: JWT tokens for admin endpoints
 - **Input Validation**: Pydantic models for request validation
 - **CORS**: Configured for production domain
@@ -704,6 +743,7 @@ module.exports = {
 - **SQL Injection**: SQLAlchemy ORM prevents injection
 
 ### Frontend Security
+
 - **Content Security Policy**: Strict CSP headers
 - **HTTPS**: Force HTTPS in production
 - **XSS Protection**: React's built-in XSS protection
@@ -712,12 +752,14 @@ module.exports = {
 ## Analytics & Monitoring
 
 ### Analytics Setup
+
 - **Google Analytics 4**: User behavior tracking
 - **Plausible Analytics**: Privacy-focused alternative
 - **API Analytics**: Track endpoint usage
 - **Error Tracking**: Sentry for error monitoring
 
 ### Performance Monitoring
+
 - **Vercel Analytics**: Frontend performance
 - **New Relic**: Backend performance monitoring
 - **Database Monitoring**: Query performance analysis
@@ -726,34 +768,42 @@ module.exports = {
 ## Content Management Strategy
 
 ### Project Documentation Template
+
 ```markdown
 # Project Title
 
 ## Problem Statement
+
 [Describe the problem you're solving]
 
 ## Solution Overview
+
 [High-level solution description]
 
 ## Technical Approach
+
 - **Algorithm**: [ML algorithm used]
 - **Libraries**: [Key Python libraries]
 - **Data**: [Dataset description and source]
 
 ## Results
+
 - **Accuracy**: [Model performance metrics]
 - **Impact**: [Business/research impact]
 
 ## Interactive Demo
+
 [Link to live demo or embedded widget]
 
 ## Code Repository
+
 [GitHub link with README]
 ```
 
 ## SEO & Marketing
 
 ### SEO Optimization
+
 - **Structured Data**: JSON-LD for projects and articles
 - **Meta Tags**: Dynamic meta tags for each page
 - **Sitemap**: Automatic sitemap generation
@@ -761,6 +811,7 @@ module.exports = {
 - **Schema.org**: Rich snippets for search results
 
 ### Content Strategy
+
 - **Technical Blog**: Weekly posts about data science topics
 - **Project Case Studies**: Detailed write-ups for each project
 - **Research Papers**: Published work and collaborations
@@ -769,12 +820,14 @@ module.exports = {
 ## Maintenance & Updates
 
 ### Regular Tasks
+
 - **Weekly**: Update project metrics and GitHub stats
 - **Monthly**: Review and update dependencies
 - **Quarterly**: Add new projects and refresh content
 - **Annually**: Redesign and major updates
 
 ### Automation Scripts
+
 ```python
 # scripts/update_projects.py
 import requests
@@ -796,6 +849,7 @@ def optimize_images():
 ## Zero-Cost Budget & Timeline
 
 ### Development Timeline (Extended for Free Setup)
+
 - **Week 1**: Home Assistant Green setup and Docker installation
 - **Week 2**: Basic Next.js structure and FastAPI backend
 - **Week 3-4**: Project showcase with SQLite database
@@ -804,6 +858,7 @@ def optimize_images():
 - **Week 9-10**: SSL setup, monitoring, and backup automation
 
 ### Zero-Cost Budget Breakdown
+
 - **Home Assistant Green**: Already owned ($0)
 - **Domain**: DuckDNS subdomain ($0/year)
 - **SSL Certificate**: Let's Encrypt ($0/year)
@@ -816,6 +871,7 @@ def optimize_images():
 ### Home Assistant Green Setup Checklist
 
 #### Hardware Requirements Met
+
 - ✅ ARM Cortex-A53 quad-core 1.5GHz
 - ✅ 2GB DDR4 RAM
 - ✅ 32GB eMMC storage
@@ -823,6 +879,7 @@ def optimize_images():
 - ✅ USB 3.0 ports for external storage
 
 #### Software Stack Optimized
+
 - ✅ ARM-compatible Docker images
 - ✅ SQLite for lightweight database
 - ✅ Static site generation for reduced server load
@@ -832,26 +889,31 @@ def optimize_images():
 ### Next Steps (Zero-Cost Implementation)
 
 1. **Home Assistant Green Preparation**
+
    - SSH into device and install Docker
    - Configure static IP and local DNS
    - Set up DuckDNS for dynamic DNS
 
 2. **Development Environment**
+
    - Clone repository to Home Assistant Green
    - Build ARM-optimized Docker images
    - Test local deployment at http://homeassistant.local:3000
 
 3. **Content Creation**
+
    - Prepare project descriptions and notebooks
    - Optimize images for web delivery
    - Create static assets for fast loading
 
 4. **Security & SSL**
+
    - Configure Let's Encrypt SSL certificates
    - Set up Nginx reverse proxy with HTTPS
    - Configure firewall rules
 
 5. **Monitoring & Maintenance**
+
    - Deploy Uptime Kuma for monitoring
    - Set up automated backups to USB drive
    - Configure log rotation and cleanup
@@ -873,6 +935,7 @@ If Home Assistant Green becomes unavailable:
 ### Complete Zero-Cost Architecture Summary
 
 This portfolio will run entirely on your existing Home Assistant Green with:
+
 - **Zero monthly costs**
 - **Complete data ownership**
 - **Local network access**
@@ -881,8 +944,10 @@ This portfolio will run entirely on your existing Home Assistant Green with:
 - **Automated backups**
 - **Performance monitoring**
 
--------
--------
+---
+
+---
+
 The system is designed to be self-sufficient, secure, and professional-grade while leveraging only free services and your existing hardware investment.
 
 This guide provides a complete roadmap for building a professional data science portfolio with zero ongoing costs, perfect for showcasing your expertise while maintaining complete control over your data and infrastructure.
