@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "https://willi-portfolio.vercel.app",
     title: "William Frank's Portfolio",
-    description: "A comprehensive portfolio showcasing academic research, software engineering projects, and technical expertise.",
+    description: "A comprehensive portfolio showcasing software engineering projects and technical expertise.",
     siteName: "William Frank's Portfolio",
   },
   twitter: {

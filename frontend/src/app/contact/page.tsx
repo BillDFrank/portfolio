@@ -296,8 +296,7 @@ export default function ContactPage() {
                   </p>
                   <p>
                     <strong>Industry Partnerships:</strong>{" "}
-                    Open to consulting opportunities and industry partnerships that align with my 
-                    research interests.
+                    Open to consulting opportunities and industry partnerships.
                   </p>
                 </div>
               </div>

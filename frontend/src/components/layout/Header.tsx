@@ -1,19 +1,29 @@
 import Link from 'next/link';
-import { Navigation } from './Navigation';
 
 export const Header = () => {
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-secondary-gray bg-primary-dark/95 backdrop-blur supports-[backdrop-filter]:bg-primary-dark/60">
-      <div className="container flex h-14 items-center">
-        <div className="mr-4 hidden md:flex">
-          <Link href="/" className="mr-6 flex items-center space-x-2">
-            <span className="hidden font-bold sm:inline-block text-text-accent">
-              William Frank
-            </span>
-          </Link>
-          <Navigation />
+    <header className="border-b border-border bg-card/50 backdrop-blur-sm">
+      <nav className="container mx-auto px-4 py-4">
+        <div className="flex items-center justify-between">
+          <div className="text-xl font-bold text-accent">
+            William's Portfolio
+          </div>
+          <div className="flex items-center space-x-6">
+            <Link href="/" className="text-foreground hover:text-primary transition-colors">
+              Home
+            </Link>
+            <Link href="/projects" className="text-foreground hover:text-primary transition-colors">
+              Projects
+            </Link>
+            <Link href="/about" className="text-foreground hover:text-primary transition-colors">
+              About
+            </Link>
+            <Link href="/contact" className="text-foreground hover:text-primary transition-colors">
+              Contact
+            </Link>
+          </div>
         </div>
-      </div>
+      </nav>
     </header>
   );
 };

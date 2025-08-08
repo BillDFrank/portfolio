@@ -11,10 +11,10 @@ export default function Home() {
 
   const featuredProjects = [
     {
-      title: "Neural Network Research",
-      description: "Advanced research on neural network architectures for computer vision applications.",
+      title: "Neural Network Architecture",
+      description: "Advanced neural network architectures for computer vision applications.",
       tags: ["Python", "PyTorch", "Computer Vision"],
-      link: "/projects/neural-network-research",
+      link: "/projects/neural-network-architecture",
     },
     {
       title: "Data Pipeline System",

@@ -118,7 +118,7 @@ export default function ProjectsPage() {
           <div className="text-center mb-12">
             <h1 className="text-4xl font-bold mb-4">Projects</h1>
             <p className="text-xl text-gray-400">
-              A collection of my research projects, software systems, and technical experiments
+              A collection of my software systems and technical experiments
             </p>
           </div>
 
