@@ -1,10 +1,10 @@
----
+----
 
 # William Frank's Porfolio
 
 ## Executive Summary
 
----
+----
 
 A professional, academic-style portfolio website designed to showcase expertise in Machine Learning - NLP - Data Science - Data Analysis. The site will feature interactive project demonstrations, Jupyter notebook integration, and a sophisticated dark-themed design optimized for technical content.
 
