@@ -1,7 +1,6 @@
 "use client";
 
-import { Mail, Github, Linkedin, Twitter, BookOpen, Award, MapPin, Calendar } from "lucide-react";
-import Image from "next/image";
+import { Mail, Github, Linkedin, Award, MapPin, Calendar } from "lucide-react";
 
 interface Experience {
   role: string;
@@ -291,9 +290,9 @@ export default function AboutPage() {
 
           {/* Contact */}
           <div className="bg-card rounded-lg p-8 border border-border text-center">
-            <h3 className="text-2xl font-bold mb-4">Let's Connect</h3>
+            <h3 className="text-2xl font-bold mb-4">Let&apos;s Connect</h3>
             <p className="text-gray-400 mb-6">
-              I'm always interested in discussing opportunities in data analytics,
+              I&apos;m always interested in discussing opportunities in data analytics,
               data science, or business intelligence projects.
             </p>
             <a

@@ -1,5 +1,5 @@
 interface DataTableProps {
-  data: any[];
+  data: Record<string, unknown>[];
   columns: { key: string; title: string }[];
 }
 
@@ -28,7 +28,7 @@ export const DataTable = ({ data, columns }: DataTableProps) => {
                   key={column.key}
                   className="whitespace-nowrap px-6 py-4 text-sm text-text-primary"
                 >
-                  {row[column.key]}
+                  {String(row[column.key])}
                 </td>
               ))}
             </tr>

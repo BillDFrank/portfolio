@@ -79,7 +79,7 @@ export default function ContactPage() {
       });
       
       setSubmitStatus('success');
-    } catch (error) {
+    } catch {
       setSubmitStatus('error');
     } finally {
       setIsSubmitting(false);
@@ -104,7 +104,7 @@ export default function ContactPage() {
           <div className="text-center mb-12">
             <h1 className="text-4xl font-bold mb-4">Get In Touch</h1>
             <p className="text-xl text-gray-400">
-              Let's discuss research collaborations, innovative projects, or opportunities
+              Let&apos;s discuss research collaborations, innovative projects, or opportunities
             </p>
           </div>
 
@@ -217,7 +217,7 @@ export default function ContactPage() {
                       className={`w-full px-4 py-3 bg-background border rounded-lg focus:outline-none focus:ring-2 transition-colors ${
                         errors.subject ? 'border-red-500 focus:ring-red-500' : 'border-border focus:ring-primary'
                       }`}
-                      placeholder="What's this about?"
+                      placeholder="What&apos;s this about?"
                     />
                     {errors.subject && (
                       <p className="mt-1 text-sm text-red-500">{errors.subject}</p>
@@ -266,7 +266,7 @@ export default function ContactPage() {
                 {submitStatus === 'success' && (
                   <div className="mt-4 p-4 bg-green-900/20 border border-green-500/20 rounded-lg">
                     <p className="text-green-400">
-                      Thank you for your message! I'll get back to you within 24-48 hours.
+                      Thank you for your message! I&apos;ll get back to you within 24-48 hours.
                     </p>
                   </div>
                 )}
@@ -286,7 +286,7 @@ export default function ContactPage() {
                 <div className="space-y-3 text-sm text-gray-300">
                   <p>
                     <strong>Research Collaborations:</strong>{" "}
-                    If you're interested in collaborating on research, please include your institution 
+                    If you&apos;re interested in collaborating on research, please include your institution 
                     and specific research interests in your message.
                   </p>
                   <p>

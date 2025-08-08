@@ -11,8 +11,13 @@ import {
   ResponsiveContainer,
 } from 'recharts';
 
+interface ChartData {
+  name: string;
+  value: number;
+}
+
 interface ChartContainerProps {
-  data: any[];
+  data: ChartData[];
   title: string;
 }
 

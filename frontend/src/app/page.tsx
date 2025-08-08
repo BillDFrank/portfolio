@@ -1,4 +1,4 @@
-import { Cpu, BarChart3, MessageSquareCode, LineChart, BookOpen, Github, Linkedin, Mail } from "lucide-react";
+import { Cpu, BarChart3, MessageSquareCode, LineChart, Github, Linkedin, Mail } from "lucide-react";
 import Link from "next/link";
 
 export default function Home() {
@@ -111,7 +111,7 @@ export default function Home() {
       {/* Contact Section */}
       <section className="py-20 bg-card">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-8">Let's Connect</h2>
+          <h2 className="text-3xl font-bold mb-8">Let&apos;s Connect</h2>
           <div className="flex justify-center space-x-6">
             <a
               href="https://github.com/BillDFrank"
