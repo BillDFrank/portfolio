@@ -44,7 +44,7 @@ jobs:
           password: ${{ secrets.HOME_ASSISTANT_PASSWORD }}
           port: 22
           script: |
-            cd /home/admin/portfolio
+            cd /home/portfolio
             git pull
             docker-compose pull
             docker-compose up -d --build
