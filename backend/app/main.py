@@ -8,7 +8,7 @@ from app.models import Base
 Base.metadata.create_all(bind=engine)
 
 app = FastAPI(
--------
+
     title="William Frank's Portfolio API",
     description="API for managing portfolio projects",
     version="1.0.0"
