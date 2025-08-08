@@ -46,6 +46,10 @@ jobs:
           script: |
             echo "=== Starting Deployment ==="
             
+            # Fix Git safe directory issue
+            git config --global --add safe.directory /home/portfolio
+            git config --global --add safe.directory /home/portfolio/portfolio
+            
             # Ensure we're in the home directory
             cd /home
             
@@ -94,18 +98,18 @@ jobs:
               echo "Found docker-compose.yml in docker/ directory"
               cd docker
               
-              # Pull the latest images using the correct username
+              # Pull the latest images using sudo for Docker permissions
               echo "Pulling latest Docker images..."
-              docker-compose pull
+              sudo docker-compose pull
               
-              # Start the services
+              # Start the services with sudo
               echo "Starting services..."
-              docker-compose up -d --build
+              sudo docker-compose up -d --build
               
               echo ""
               echo "Deployment complete!"
               echo "Running containers:"
-              docker ps
+              sudo docker ps
             else
               echo "ERROR: docker/docker-compose.yml not found!"
               echo "Looking for docker-compose.yml in other locations..."
