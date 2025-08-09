@@ -15,5 +15,8 @@ services:
     ports:
       - "8000:8000"
     volumes:
-      - ./data:/app/data
+      - portfolio-data:/app/data
     restart: unless-stopped
+
+volumes:
+  portfolio-data:
