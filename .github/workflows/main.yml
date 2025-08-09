@@ -1,4 +1,4 @@
-name: Build Docker Images
+name: Build and Deploy to Home Assistant
 
 on:
   push:
@@ -6,27 +6,19 @@ on:
       - main
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v1
-
-      - name: Build frontend
-        uses: docker/build-push-action@v2
+      
+      - name: Deploy to Home Assistant
+        uses: appleboy/ssh-action@master
         with:
-          context: ./frontend
-          file: ./frontend/Dockerfile
-          push: false
-          tags: portfolio-frontend:latest
-
-      - name: Build backend
-        uses: docker/build-push-action@v2
-        with:
-          context: ./backend
-          file: ./backend/Dockerfile
-          push: false
-          tags: portfolio-backend:latest
+          host: ${{ secrets.HOME_ASSISTANT_HOST }}
+          username: ${{ secrets.HOME_ASSISTANT_USERNAME }}
+          password: ${{ secrets.HOME_ASSISTANT_PASSWORD }}
+          script: |
+            cd /home/portfolio/portfolio
+            git pull
+            docker-compose up -d --build --force-recreate
