@@ -8,7 +8,6 @@ interface Project {
   id: string;
   title: string;
   description: string;
-  longDescription: string;
   technologies: string[];
   githubUrl?: string;
   liveUrl?: string;
@@ -23,7 +22,6 @@ const projects: Project[] = [
     id: "jupyter-notebook-example",
     title: "Jupyter Notebook Example",
     description: "An example project displaying a Jupyter Notebook directly on the website.",
-    longDescription: "This project demonstrates how a Jupyter Notebook can be embedded and displayed within a Next.js application. The content is rendered directly from a static HTML export of a Jupyter Notebook, showcasing code, outputs, and markdown.",
     technologies: ["Jupyter", "HTML", "Next.js"],
     githubUrl: "https://github.com/willi/jupyter-notebook-example", // Placeholder
     category: "Jupyter",
@@ -32,23 +30,10 @@ const projects: Project[] = [
     link: "/jupyter-notebook", // Link to the new page
   },
   {
-    id: "data-pipeline-system",
-    title: "Real-time Data Processing Pipeline",
-    description: "Scalable data processing system for real-time analytics and ML model training.",
-    longDescription: "Built a distributed data processing pipeline using Apache Kafka, Python, and Docker. The system handles millions of events per second, providing real-time analytics and feeding machine learning models with fresh data. Includes monitoring, alerting, and automatic scaling capabilities.",
-    technologies: ["Python", "Apache Kafka", "Docker", "Kubernetes", "PostgreSQL", "Redis"],
-    githubUrl: "https://github.com/willi/data-pipeline",
-    liveUrl: "https://pipeline-demo.willi.dev",
-    category: "Infrastructure",
-    date: "2023-11-20",
-    status: "completed",
-  },
-  {
     id: "portfolio-website",
     title: "Portfolio Website",
     description: "Modern portfolio website with academic dark theme and comprehensive project showcase.",
-    longDescription: "A full-stack portfolio website built with Next.js, TypeScript, and Tailwind CSS. Features a custom academic dark theme, responsive design, project showcase, and integration with backend APIs for dynamic content management.",
-    technologies: ["Next.js", "TypeScript", "Tailwind CSS", "FastAPI", "PostgreSQL", "Docker"],
+    technologies: ["Next.js", "TypeScript", "Tailwind CSS"],
     githubUrl: "https://github.com/willi/portfolio",
     liveUrl: "https://willi-portfolio.vercel.app",
     category: "Web Development",
@@ -56,22 +41,10 @@ const projects: Project[] = [
     status: "completed",
   },
   {
-    id: "ml-experiment-tracker",
-    title: "ML Experiment Tracking System",
-    description: "Comprehensive experiment tracking and model management platform for ML workflows.",
-    longDescription: "Developed an experiment tracking system that allows users to log, compare, and reproduce machine learning experiments. Features include hyperparameter tracking, metric visualization, model versioning, and integration with popular ML frameworks.",
-    technologies: ["Python", "FastAPI", "React", "PostgreSQL", "Redis", "Docker"],
-    githubUrl: "https://github.com/willi/ml-tracker",
-    category: "Machine Learning",
-    date: "2023-09-10",
-    status: "completed",
-  },
-  {
     id: "computer-vision-toolkit",
     title: "Computer Vision Toolkit",
     description: "Open-source computer vision toolkit with pre-trained models and utilities.",
-    longDescription: "Created a comprehensive computer vision toolkit that provides easy-to-use APIs for common CV tasks including image classification, object detection, and segmentation. Includes pre-trained models, data augmentation utilities, and evaluation metrics.",
-    technologies: ["Python", "OpenCV", "PyTorch", "TensorFlow", "Docker"],
+    technologies: ["Python", "OpenCV", "PyTorch", "TensorFlow"],
     githubUrl: "https://github.com/willi/cv-toolkit",
     category: "Machine Learning",
     date: "2023-07-05",
@@ -248,13 +221,10 @@ export default function ProjectsPage() {
                       View Project
                     </Link>
                   ) : (
-                    <Link
-                      href={`/projects/${project.id}`}
-                      className="flex items-center text-primary hover:text-primary/80 transition-colors"
-                    >
+                    <span className="flex items-center text-gray-500">
                       <Tag className="w-4 h-4 mr-2" />
                       Details
-                    </Link>
+                    </span>
                   )}
                 </div>
               </div>
