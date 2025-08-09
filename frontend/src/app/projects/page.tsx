@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Search, ExternalLink, Github, Calendar, Tag } from "lucide-react";
 import Link from "next/link";
 
@@ -17,52 +17,32 @@ interface Project {
   link?: string;
 }
 
-const projects: Project[] = [
-  {
-    id: "jupyter-notebook-example",
-    title: "Jupyter Notebook Example",
-    description: "An example project displaying a Jupyter Notebook directly on the website.",
-    technologies: ["Jupyter", "HTML", "Next.js"],
-    githubUrl: "https://github.com/willi/jupyter-notebook-example", // Placeholder
-    category: "Jupyter",
-    date: "2024-08-01",
-    status: "completed",
-    link: "/jupyter-notebook", // Link to the new page
-  },
-  {
-    id: "portfolio-website",
-    title: "Portfolio Website",
-    description: "Modern portfolio website with academic dark theme and comprehensive project showcase.",
-    technologies: ["Next.js", "TypeScript", "Tailwind CSS"],
-    githubUrl: "https://github.com/willi/portfolio",
-    liveUrl: "https://willi-portfolio.vercel.app",
-    category: "Web Development",
-    date: "2024-02-01",
-    status: "completed",
-  },
-  {
-    id: "computer-vision-toolkit",
-    title: "Computer Vision Toolkit",
-    description: "Open-source computer vision toolkit with pre-trained models and utilities.",
-    technologies: ["Python", "OpenCV", "PyTorch", "TensorFlow"],
-    githubUrl: "https://github.com/willi/cv-toolkit",
-    category: "Machine Learning",
-    date: "2023-07-05",
-    status: "completed",
-  },
-];
-
 const categories = ["All", "Jupyter", "Machine Learning", "Infrastructure", "Web Development"];
 
 export default function ProjectsPage() {
+  const [projects, setProjects] = useState<Project[]>([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [selectedStatus, setSelectedStatus] = useState<string>("all");
 
+  useEffect(() => {
+    const fetchProjects = async () => {
+      try {
+        const response = await fetch('/api/projects');
+        const data = await response.json();
+        setProjects(data);
+      } catch (error) {
+        console.error('Error fetching projects:', error);
+      }
+    };
+
+    fetchProjects();
+  }, []);
+
   const filteredProjects = projects.filter((project) => {
     const matchesSearch = project.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
                          project.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                         project.technologies.some(tech => 
+                         project.technologies.some(tech =>
                            tech.toLowerCase().includes(searchTerm.toLowerCase())
                          );
     

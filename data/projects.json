@@ -1,0 +1,34 @@
+[
+  {
+    "id": "jupyter-notebook-example",
+    "title": "Jupyter Notebook Example",
+    "description": "An example project displaying a Jupyter Notebook directly on the website.",
+    "technologies": ["Jupyter", "HTML", "Next.js"],
+    "githubUrl": "https://github.com/willi/jupyter-notebook-example",
+    "category": "Jupyter",
+    "date": "2024-08-01",
+    "status": "completed",
+    "link": "/jupyter-notebook"
+  },
+  {
+    "id": "portfolio-website",
+    "title": "Portfolio Website",
+    "description": "Modern portfolio website with academic dark theme and comprehensive project showcase.",
+    "technologies": ["Next.js", "TypeScript", "Tailwind CSS", "FastAPI", "PostgreSQL", "Docker"],
+    "githubUrl": "https://github.com/willi/portfolio",
+    "liveUrl": "https://willi-portfolio.vercel.app",
+    "category": "Web Development",
+    "date": "2024-02-01",
+    "status": "completed"
+  },
+  {
+    "id": "computer-vision-toolkit",
+    "title": "Computer Vision Toolkit",
+    "description": "Open-source computer vision toolkit with pre-trained models and utilities.",
+    "technologies": ["Python", "OpenCV", "PyTorch", "TensorFlow", "Docker"],
+    "githubUrl": "https://github.com/willi/cv-toolkit",
+    "category": "Machine Learning",
+    "date": "2023-07-05",
+    "status": "completed"
+  }
+]
