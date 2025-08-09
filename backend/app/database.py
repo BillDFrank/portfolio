@@ -6,12 +6,25 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-DATABASE_URL = os.getenv("DATABASE_URL", "sqlite:///./portfolio.db")
+DATABASE_URL = os.getenv("POSTGRES_URL_NON_POOLING", "sqlite:///./portfolio.db")
 
-engine = create_engine(
-    DATABASE_URL,
-    connect_args={"check_same_thread": False} if "sqlite" in DATABASE_URL else {}
-)
+# Supabase PostgreSQL configuration
+if DATABASE_URL and DATABASE_URL.startswith("postgresql://"):
+    # For Supabase PostgreSQL
+    engine = create_engine(
+        DATABASE_URL,
+        pool_size=5,
+        max_overflow=10,
+        pool_pre_ping=True,
+        pool_recycle=300
+    )
+else:
+    # For SQLite (local development)
+    engine = create_engine(
+        DATABASE_URL,
+        connect_args={"check_same_thread": False}
+    )
+
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
 Base = declarative_base()

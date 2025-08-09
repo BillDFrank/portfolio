@@ -1,118 +1,35 @@
-# .github/workflows/build-and-deploy.yml
-name: Build and Deploy to Home Assistant Green
+name: Build and Deploy
+
 on:
   push:
-    branches: [main]
+    branches:
+      - main
 
 jobs:
-  build-and-deploy:
+  deploy-frontend:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v3
 
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v3
-
-      - name: Log in to Docker Hub
-        uses: docker/login-action@v3
+      - name: Deploy to Vercel
+        uses: amondnet/vercel-action@v20
         with:
-          username: ${{ secrets.DOCKER_HUB_USERNAME }}
-          password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
+          vercel-token: ${{ secrets.VERCEL_TOKEN }}
+          vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
+          vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
+          vercel-args: "--prod"
+          working-directory: ./frontend
 
-      - name: Build and push frontend image
-        uses: docker/build-push-action@v5
-        with:
-          context: .
-          file: ./docker/Dockerfile.frontend
-          push: true
-          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/portfolio-frontend:latest
+  deploy-backend:
+    runs-on: ubuntu-latest
+    needs: deploy-frontend
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
 
-      - name: Build and push backend image
-        uses: docker/build-push-action@v5
+      - name: Deploy to Render
+        uses: johnbeynon/render-deploy-action@v0.0.8
         with:
-          context: .
-          file: ./docker/Dockerfile.backend
-          push: true
-          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/portfolio-backend:latest
-
-      - name: Deploy to Home Assistant Green (password auth)
-        uses: appleboy/ssh-action@v1.0.3
-        with:
-          host: ${{ secrets.HOME_ASSISTANT_HOST }}
-          username: ${{ secrets.HOME_ASSISTANT_USERNAME }}
-          password: ${{ secrets.HOME_ASSISTANT_PASSWORD }}
-          port: 22
-          script: |
-            echo "=== Starting Deployment ==="
-            
-            # Fix Git safe directory issue
-            git config --global --add safe.directory /home/portfolio
-            git config --global --add safe.directory /home/portfolio/portfolio
-            
-            # Ensure we're in the home directory
-            cd /home
-            
-            # Check for nested portfolio structure
-            if [ -d "portfolio/portfolio/.git" ]; then
-              echo "Found nested portfolio/portfolio structure with git repository"
-              cd portfolio/portfolio
-              echo "Pulling latest changes..."
-              git pull origin main
-            elif [ -d "portfolio/.git" ]; then
-              echo "Found portfolio directory with git repository"
-              cd portfolio
-              echo "Pulling latest changes..."
-              git pull origin main
-            else
-              echo "No git repository found, need to set up fresh"
-              
-              # Handle existing directory with sudo if needed
-              if [ -d "portfolio" ]; then
-                echo "Existing portfolio directory found, attempting to remove..."
-                # Try with sudo if regular rm fails
-                sudo rm -rf portfolio 2>/dev/null || rm -rf portfolio 2>/dev/null || {
-                  echo "Cannot remove existing directory, trying to work with it..."
-                  # If we can't remove, try to clone into a temp directory and move
-                  git clone https://github.com/${{ github.repository }}.git portfolio_temp
-                  sudo rm -rf portfolio 2>/dev/null || true
-                  mv portfolio_temp portfolio
-                }
-              else
-                # Fresh clone
-                echo "Cloning repository..."
-                git clone https://github.com/${{ github.repository }}.git portfolio
-              fi
-              
-              cd portfolio
-            fi
-            
-            echo ""
-            echo "Current directory: $(pwd)"
-            echo "Repository contents:"
-            ls -la
-            
-            # Check for docker-compose.yml in the docker directory
-            if [ -f "docker/docker-compose.yml" ]; then
-              echo ""
-              echo "Found docker-compose.yml in docker/ directory"
-              cd docker
-              
-              # Pull the latest images using sudo for Docker permissions
-              echo "Pulling latest Docker images..."
-              sudo docker-compose pull
-              
-              # Start the services with sudo
-              echo "Starting services..."
-              sudo docker-compose up -d --build
-              
-              echo ""
-              echo "Deployment complete!"
-              echo "Running containers:"
-              sudo docker ps
-            else
-              echo "ERROR: docker/docker-compose.yml not found!"
-              echo "Looking for docker-compose.yml in other locations..."
-              find . -name "docker-compose.yml" -type f 2>/dev/null || echo "No docker-compose.yml found anywhere"
-              exit 1
-            fi
+          service-id: ${{ secrets.RENDER_SERVICE_ID }}
+          api-key: ${{ secrets.RENDER_API_KEY }}
