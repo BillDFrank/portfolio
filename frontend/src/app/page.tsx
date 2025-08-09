@@ -11,10 +11,10 @@ export default function Home() {
 
   const featuredProjects = [
     {
-      title: "Neural Network Architecture",
-      description: "Advanced neural network architectures for computer vision applications.",
-      tags: ["Python", "PyTorch", "Computer Vision"],
-      link: "/projects/neural-network-architecture",
+      title: "Document Classifier",
+      description: "Python-based system for document classification, clustering, and analysis. It provides tools for processing text data, training classifiers, performing clustering, detecting outliers, computing similarities, and generating visualizations. The project is modular and designed for easy extension, making it suitable for tasks like document categorization, search, and recommendation.",
+      tags: ["Python", "PyTorch", "Streamlit", "Transformers", "Hugging Face", "Scikit-learn"],
+      link: "https://github.com/BillDFrank/document-classifier",
     },
     {
       title: "Data Pipeline System",

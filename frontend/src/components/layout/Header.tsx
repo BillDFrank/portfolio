@@ -6,7 +6,9 @@ export const Header = () => {
       <nav className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           <div className="text-xl font-bold text-accent">
-            William&apos;s Portfolio
+            <Link href="/" className="hover:text-accent-blue transition-colors">
+              Portfolio
+            </Link>
           </div>
           <div className="flex items-center space-x-6">
             <Link href="/" className="text-foreground hover:text-primary transition-colors">

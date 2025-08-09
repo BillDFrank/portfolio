@@ -18,14 +18,14 @@ const jetbrainsMono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   title: "William Frank's Portfolio",
-  description: "A comprehensive portfolio showcasing academic research, software engineering projects, and technical expertise in machine learning and data science.",
+  description: "A comprehensive portfolio showcasing software engineering projects, and technical expertise in machine learning and data science.",
   keywords: ["machine learning", "data science", "software engineering", "portfolio"],
   authors: [{ name: "William Frank", url: "https://github.com/BillDFrank" }],
   creator: "William Frank",
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://willi-portfolio.vercel.app",
+    url: "https://williamfrank.vercel.app",
     title: "William Frank's Portfolio",
     description: "A comprehensive portfolio showcasing software engineering projects and technical expertise.",
     siteName: "William Frank's Portfolio",
