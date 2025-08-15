@@ -11,7 +11,7 @@ A professional, academic-style portfolio website designed to showcase expertise 
 ```
 Frontend Framework: Next.js 14 (React 18)
 Styling: Tailwind CSS + Framer Motion
-Deployment: Vercel (or other static hosting)
+Deployment: GitHub Pages (static hosting)
 ```
 
 ### Core Architecture Diagram
@@ -29,62 +29,62 @@ graph TD
 
 ```css
 /* Primary Colors */
---primary-dark: #0a0a0a;        /* Background */
---primary-gray: #1a1a1a;        /* Card backgrounds */
---secondary-gray: #2a2a2a;      /* Borders */
---accent-gray: #3a3a3a;         /* Hover states */
+--primary-dark: #0a0a0a; /* Background */
+--primary-gray: #1a1a1a; /* Card backgrounds */
+--secondary-gray: #2a2a2a; /* Borders */
+--accent-gray: #3a3a3a; /* Hover states */
 
 /* Text Colors */
---text-primary: #e0e0e0;        /* Primary text */
---text-secondary: #b0b0b0;      /* Secondary text */
---text-muted: #808080;          /* Muted text */
---text-accent: #ffffff;         /* Headers */
+--text-primary: #e0e0e0; /* Primary text */
+--text-secondary: #b0b0b0; /* Secondary text */
+--text-muted: #808080; /* Muted text */
+--text-accent: #ffffff; /* Headers */
 
 /* Accent Colors */
---accent-blue: #3b82f6;         /* Primary accent */
---accent-purple: #8b5cf6;       /* Secondary accent */
---accent-green: #10b981;        /* Success states */
---accent-orange: #f59e0b;       /* Warning states */
---accent-red: #ef4444;          /* Error states */
+--accent-blue: #3b82f6; /* Primary accent */
+--accent-purple: #8b5cf6; /* Secondary accent */
+--accent-green: #10b981; /* Success states */
+--accent-orange: #f59e0b; /* Warning states */
+--accent-red: #ef4444; /* Error states */
 
 /* Code Colors */
---code-bg: #0f172a;             /* Code block background */
---code-border: #334155;         /* Code block border */
+--code-bg: #0f172a; /* Code block background */
+--code-border: #334155; /* Code block border */
 ```
 
 ### Typography Scale
 
 ```css
 /* Font Family */
---font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
---font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+--font-sans: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+--font-mono: "JetBrains Mono", "Fira Code", monospace;
 
 /* Type Scale */
---text-xs: 0.75rem;     /* 12px */
---text-sm: 0.875rem;    /* 14px */
---text-base: 1rem;      /* 16px */
---text-lg: 1.125rem;    /* 18px */
---text-xl: 1.25rem;     /* 20px */
---text-2xl: 1.5rem;     /* 24px */
---text-3xl: 1.875rem;   /* 30px */
---text-4xl: 2.25rem;    /* 36px */
---text-5xl: 3rem;       /* 48px */
+--text-xs: 0.75rem; /* 12px */
+--text-sm: 0.875rem; /* 14px */
+--text-base: 1rem; /* 16px */
+--text-lg: 1.125rem; /* 18px */
+--text-xl: 1.25rem; /* 20px */
+--text-2xl: 1.5rem; /* 24px */
+--text-3xl: 1.875rem; /* 30px */
+--text-4xl: 2.25rem; /* 36px */
+--text-5xl: 3rem; /* 48px */
 ```
 
 ### Spacing System
 
 ```css
---space-1: 0.25rem;   /* 4px */
---space-2: 0.5rem;    /* 8px */
---space-3: 0.75rem;   /* 12px */
---space-4: 1rem;      /* 16px */
---space-5: 1.25rem;   /* 20px */
---space-6: 1.5rem;    /* 24px */
---space-8: 2rem;      /* 32px */
---space-10: 2.5rem;   /* 40px */
---space-12: 3rem;     /* 48px */
---space-16: 4rem;     /* 64px */
---space-20: 5rem;     /* 80px */
+--space-1: 0.25rem; /* 4px */
+--space-2: 0.5rem; /* 8px */
+--space-3: 0.75rem; /* 12px */
+--space-4: 1rem; /* 16px */
+--space-5: 1.25rem; /* 20px */
+--space-6: 1.5rem; /* 24px */
+--space-8: 2rem; /* 32px */
+--space-10: 2.5rem; /* 40px */
+--space-12: 3rem; /* 48px */
+--space-16: 4rem; /* 64px */
+--space-20: 5rem; /* 80px */
 ```
 
 ## Website Structure & Navigation
@@ -110,12 +110,12 @@ graph TD
 
 ```typescript
 const navigation = [
-  { name: 'Home', href: '/', icon: 'Home' },
-  { name: 'About', href: '/about', icon: 'User' },
-  { name: 'Projects', href: '/projects', icon: 'Code' },
-  { name: 'Blog', href: '/blog', icon: 'FileText' },
-  { name: 'Contact', href: '/contact', icon: 'Mail' }
-]
+  { name: "Home", href: "/", icon: "Home" },
+  { name: "About", href: "/about", icon: "User" },
+  { name: "Projects", href: "/projects", icon: "Code" },
+  { name: "Blog", href: "/blog", icon: "FileText" },
+  { name: "Contact", href: "/contact", icon: "Mail" },
+];
 ```
 
 ## Project Showcase Architecture
@@ -128,7 +128,7 @@ interface Project {
   slug: string;
   title: string;
   description: string;
-  category: 'ml' | 'nlp' | 'visualization';
+  category: "ml" | "nlp" | "visualization";
   technologies: string[];
   thumbnail: string;
   demoUrl?: string;
@@ -173,9 +173,8 @@ npm run dev
 
 ### Free Cloud Hosting
 
-- **Vercel Free Tier**: 100GB bandwidth/month
+- **GitHub Pages**: Free static hosting (recommended)
 - **Netlify Free**: 100GB bandwidth/month
 - **Cloudflare Pages**: Unlimited bandwidth
-- **GitHub Pages**: Free static hosting
 
 This guide provides a complete roadmap for building a professional data science portfolio with zero ongoing costs.

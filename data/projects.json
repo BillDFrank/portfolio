@@ -15,8 +15,8 @@
     "title": "Portfolio Website",
     "description": "Modern portfolio website with academic dark theme and comprehensive project showcase.",
     "technologies": ["Next.js", "TypeScript", "Tailwind CSS", "FastAPI", "PostgreSQL", "Docker"],
-    "githubUrl": "https://github.com/willi/portfolio",
-    "liveUrl": "https://willi-portfolio.vercel.app",
+    "githubUrl": "https://github.com/BillDFrank/portfolio",
+    "liveUrl": "https://billdfrank.github.io/portfolio",
     "category": "Web Development",
     "date": "2024-02-01",
     "status": "completed"

@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://williamfrank.vercel.app",
+    url: "https://billdfrank.github.io/portfolio",
     title: "William Frank's Portfolio",
     description: "A comprehensive portfolio showcasing software engineering projects and technical expertise.",
     siteName: "William Frank's Portfolio",
