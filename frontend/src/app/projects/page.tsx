@@ -3,19 +3,7 @@
 import { useState, useEffect } from "react";
 import { Search, ExternalLink, Github, Calendar, Tag } from "lucide-react";
 import Link from "next/link";
-
-interface Project {
-  id: string;
-  title: string;
-  description: string;
-  technologies: string[];
-  githubUrl?: string;
-  liveUrl?: string;
-  category: string;
-  date: string;
-  status: "completed" | "in-progress" | "planned";
-  link?: string;
-}
+import { projectsData, type Project } from "@/lib/projects";
 
 const categories = ["All", "Jupyter", "Machine Learning", "Infrastructure", "Web Development"];
 
@@ -26,17 +14,8 @@ export default function ProjectsPage() {
   const [selectedStatus, setSelectedStatus] = useState<string>("all");
 
   useEffect(() => {
-    const fetchProjects = async () => {
-      try {
-        const response = await fetch('/api/projects');
-        const data = await response.json();
-        setProjects(data);
-      } catch (error) {
-        console.error('Error fetching projects:', error);
-      }
-    };
-
-    fetchProjects();
+    // Use static data instead of API call for GitHub Pages
+    setProjects(projectsData);
   }, []);
 
   const filteredProjects = projects.filter((project) => {
