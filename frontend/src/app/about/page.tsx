@@ -1,6 +1,8 @@
 "use client";
 
-import { Mail, Github, Linkedin, Award, MapPin, Calendar } from "lucide-react";
+import { useState } from "react";
+import Image from "next/image";
+import { Mail, Github, Linkedin, Award, MapPin, Calendar, ExternalLink } from "lucide-react";
 
 interface Experience {
   role: string;
@@ -26,6 +28,7 @@ interface Skill {
 }
 
 export default function AboutPage() {
+  const [imgOk, setImgOk] = useState(true);
   const experiences: Experience[] = [
     {
       role: "Document Management System Consultant",
@@ -124,12 +127,109 @@ export default function AboutPage() {
     }
   ];
 
-  const awards = [
+  interface Certification {
+    title: string;
+    organization: string;
+    issued: string; // e.g., "Jul 2025"
+    credentialId: string;
+    url: string;
+    skills: string[];
+  }
+
+  const certifications: Certification[] = [
     {
-      title: "Professional Excellence",
-      organization: "Capgemini Engineering",
-      year: "2024",
-      description: "Recognized for outstanding contribution to document management systems in renewable energy sector"
+      title: "IBM AI Engineering Specialization",
+      organization: "IBM",
+      issued: "Jul 2025",
+      credentialId: "DA5F6KRZWWFO",
+      url: "https://www.coursera.org/account/accomplishments/specialization/DA5F6KRZWWFO",
+      skills: [
+        "Scikit-Learn",
+        "Natural Language Processing (NLP)",
+        "Supervised Learning",
+        "Machine Learning",
+        "Python (Programming Language)",
+        "LangChain",
+        "Hugging Face",
+        "PyTorch",
+        "Fine Tuning",
+        "Transformers",
+        "Large Language Models (LLM)",
+        "Deep Learning",
+        "Neural Networks"
+      ]
+    },
+    {
+      title: "Microsoft Power BI Data Analyst",
+      organization: "Microsoft",
+      issued: "Dec 2024",
+      credentialId: "644G4BLA8G3F",
+      url: "https://www.coursera.org/account/accomplishments/specialization/644G4BLA8G3F",
+      skills: [
+        "Power BI",
+        "Extract, Transform, Load (ETL)",
+        "Data Modeling",
+        "Data Analysis",
+        "Data Preparation"
+      ]
+    },
+    {
+      title: "Learn SQL Basics for Data Science Specialization",
+      organization: "University of California, Davis",
+      issued: "May 2024",
+      credentialId: "Z94X5TM8PTXX",
+      url: "https://www.coursera.org/account/accomplishments/specialization/Z94X5TM8PTXX",
+      skills: ["SQL", "Databases", "Data Manipulation", "Analytics"]
+    },
+    {
+      title: "Data Visualization",
+      organization: "University of Illinois Urbana-Champaign",
+      issued: "Feb 2024",
+      credentialId: "HMT35UU226VX",
+      url: "https://www.coursera.org/account/accomplishments/verify/HMT35UU226VX",
+      skills: ["Analytics"]
+    },
+    {
+      title: "Machine Learning Specialization | DeepLearning.AI & Stanford University",
+      organization: "DeepLearning.AI",
+      issued: "Feb 2024",
+      credentialId: "4CB256KQWWLD",
+      url: "https://www.coursera.org/account/accomplishments/specialization/4CB256KQWWLD",
+      skills: [
+        "Scikit-Learn",
+        "Linear Regression",
+        "Classification",
+        "Neural Networks",
+        "XGBoost",
+        "TensorFlow",
+        "Supervised Learning",
+        "Logistic Regression",
+        "Decision Trees",
+        "Data Manipulation"
+      ]
+    },
+    {
+      title: "Python for Data Science and Machine Learning Bootcamp",
+      organization: "Udemy",
+      issued: "Aug 2023",
+      credentialId: "UC-80775c45-5744-4656-8272-624caf26c2be",
+      url: "https://www.udemy.com/certificate/UC-80775c45-5744-4656-8272-624caf26c2be/",
+      skills: [
+        "Scikit-Learn",
+        "Python (Programming Language)",
+        "Machine Learning",
+        "TensorFlow",
+        "Seaborn",
+        "Data Science"
+      ]
+    },
+    {
+      title: "A Crash Course in Data Science",
+      organization: "Coursera",
+      issued: "Jun 2023",
+      credentialId: "VZ2NUELZDRRG",
+      url: "https://www.coursera.org/account/accomplishments/certificate/VZ2NUELZDRRG",
+      skills: ["Machine Learning", "Statistical Data Analysis", "Data Science"]
     }
   ];
 
@@ -148,9 +248,21 @@ export default function AboutPage() {
           {/* Profile Section */}
           <div className="bg-card rounded-lg p-8 mb-8 border border-border">
             <div className="flex flex-col md:flex-row items-center md:items-start gap-6">
-              <div className="w-32 h-32 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center text-4xl font-bold">
-                W
-              </div>
+              {imgOk ? (
+                <Image
+                  src="/profile.jpg"
+                  alt="William profile photo"
+                  width={128}
+                  height={128}
+                  priority
+                  onError={() => setImgOk(false)}
+                  className="w-32 h-32 rounded-full object-cover"
+                />
+              ) : (
+                <div className="w-32 h-32 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center text-4xl font-bold">
+                  W
+                </div>
+              )}
               <div className="flex-1 text-center md:text-left">
                 <h2 className="text-2xl font-bold mb-2">William</h2>
                 <p className="text-gray-400 mb-4">
@@ -270,19 +382,40 @@ export default function AboutPage() {
             </div>
           </div>
 
-          {/* Awards & Recognition */}
+          {/* Certificates */}
           <div className="mb-8">
-            <h3 className="text-2xl font-bold mb-6">Awards & Recognition</h3>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {awards.map((award, index) => (
+            <h3 className="text-2xl font-bold mb-6">Certificates</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {certifications.map((cert, index) => (
                 <div key={index} className="bg-card rounded-lg p-6 border border-border">
                   <div className="flex items-center mb-3">
                     <Award className="w-5 h-5 text-yellow-400 mr-2" />
-                    <h4 className="font-semibold">{award.title}</h4>
+                    <h4 className="font-semibold">{cert.title}</h4>
                   </div>
-                  <p className="text-sm text-primary mb-2">{award.organization}</p>
-                  <p className="text-sm text-gray-400 mb-2">{award.year}</p>
-                  <p className="text-sm text-gray-300">{award.description}</p>
+                  <p className="text-sm text-primary mb-2">{cert.organization}</p>
+                  <div className="text-xs text-gray-400 mb-2">Issued {cert.issued}</div>
+                  <div className="text-xs text-gray-400 mb-3">Credential ID: {cert.credentialId}</div>
+                  <a
+                    href={cert.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center text-sm text-blue-400 hover:text-blue-300 mb-4"
+                  >
+                    View credential
+                    <ExternalLink className="w-4 h-4 ml-1" />
+                  </a>
+                  {cert.skills?.length > 0 && (
+                    <div className="flex flex-wrap gap-2">
+                      {cert.skills.map((skill) => (
+                        <span
+                          key={skill}
+                          className="px-2 py-1 bg-secondary-gray text-[11px] rounded-full text-gray-300"
+                        >
+                          {skill}
+                        </span>
+                      ))}
+                    </div>
+                  )}
                 </div>
               ))}
             </div>

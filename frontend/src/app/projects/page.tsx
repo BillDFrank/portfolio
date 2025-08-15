@@ -5,7 +5,7 @@ import { Search, ExternalLink, Github, Calendar, Tag } from "lucide-react";
 import Link from "next/link";
 import { projectsData, type Project } from "@/lib/projects";
 
-const categories = ["All", "Jupyter", "Machine Learning", "Infrastructure", "Web Development"];
+const categories = ["All", "Jupyter", "Machine Learning", "Infrastructure", "Web App", "Transformers", "Classifier"];
 
 export default function ProjectsPage() {
   const [projects, setProjects] = useState<Project[]>([]);
@@ -25,7 +25,7 @@ export default function ProjectsPage() {
                            tech.toLowerCase().includes(searchTerm.toLowerCase())
                          );
     
-    const matchesCategory = selectedCategory === "All" || project.category === selectedCategory;
+  const matchesCategory = selectedCategory === "All" || (project.categories?.includes?.(selectedCategory));
     const matchesStatus = selectedStatus === "all" || project.status === selectedStatus;
     
     return matchesSearch && matchesCategory && matchesStatus;
@@ -52,7 +52,7 @@ export default function ProjectsPage() {
           <div className="text-center mb-12">
             <h1 className="text-4xl font-bold mb-4">Projects</h1>
             <p className="text-xl text-gray-400">
-              A collection of my software systems and technical experiments
+              A collection of my personal projects
             </p>
           </div>
 
@@ -76,11 +76,11 @@ export default function ProjectsPage() {
                 <button
                   key={category}
                   onClick={() => setSelectedCategory(category)}
-                  className={`px-4 py-2 rounded-lg transition-colors $(
+                  className={`px-4 py-2 rounded-lg transition-colors ${
                     selectedCategory === category
                       ? "bg-primary text-white"
                       : "bg-card border border-border hover:bg-card/80"
-                  )`}
+                  }`}
                 >
                   {category}
                 </button>
@@ -91,11 +91,11 @@ export default function ProjectsPage() {
             <div className="flex flex-wrap gap-2">
               <button
                 onClick={() => setSelectedStatus("all")}
-                className={`px-4 py-2 rounded-lg transition-colors $(
+                className={`px-4 py-2 rounded-lg transition-colors ${
                   selectedStatus === "all"
                     ? "bg-primary text-white"
                     : "bg-card border border-border hover:bg-card/80"
-                )`}
+                }`}
               >
                 All Status
               </button>
@@ -103,11 +103,11 @@ export default function ProjectsPage() {
                 <button
                   key={status}
                   onClick={() => setSelectedStatus(status)}
-                  className={`px-4 py-2 rounded-lg transition-colors capitalize $(
+                  className={`px-4 py-2 rounded-lg transition-colors capitalize ${
                     selectedStatus === status
                       ? "bg-primary text-white"
                       : "bg-card border border-border hover:bg-card/80"
-                  )`}
+                  }`}
                 >
                   {status.replace("-", " ")}
                 </button>
@@ -146,6 +146,15 @@ export default function ProjectsPage() {
                       </span>
                     ))}
                   </div>
+                  {project.categories && project.categories.length > 0 && (
+                    <div className="flex flex-wrap gap-2 mt-3">
+                      {project.categories.map((cat) => (
+                        <span key={cat} className="px-2 py-1 bg-primary/10 text-primary text-xs rounded">
+                          {cat}
+                        </span>
+                      ))}
+                    </div>
+                  )}
                 </div>
 
                 <div className="flex gap-4">

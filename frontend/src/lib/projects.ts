@@ -6,7 +6,7 @@ export interface Project {
   technologies: string[];
   githubUrl?: string;
   liveUrl?: string;
-  category: string;
+  categories: string[];
   date: string;
   status: "completed" | "in-progress" | "planned";
   link?: string;
@@ -14,55 +14,24 @@ export interface Project {
 
 export const projectsData: Project[] = [
   {
-    "id": "jupyter-notebook-example",
-    "title": "Jupyter Notebook Example",
-    "description": "An example project displaying a Jupyter Notebook directly on the website.",
-    "technologies": ["Jupyter", "HTML", "Next.js"],
-    "githubUrl": "https://github.com/BillDFrank/jupyter-notebook-example",
-    "category": "Jupyter",
-    "date": "2024-08-01",
+    "id": "document-classifier",
+    "title": "Document Classifier",
+    "description": "Python-based system for document classification, clustering, and analysis. It provides tools for processing text data, training classifiers, performing clustering, detecting outliers, computing similarities, and generating visualizations. The project is modular and designed for easy extension, making it suitable for tasks like document categorization, search, and recommendation.",
+    "technologies": ["Streamlit", "Scikit-learn", "Transformers", "Hugging Face", "PyTorch"],
+    "githubUrl": "https://github.com/BillDFrank/document-classifier",
+    "categories": ["Transformers", "Web App", "Classifier"],
+    "date": "2025-04-01",
+    "status": "in-progress",
+  },
+  {
+    "id": "option-price-calculator",
+    "title": "Option Price Calculator",
+    "description": "This project is a web-based Option Price Calculator built with Flask. It allows users to calculate the price of European call and put options using the Black-Scholes model, as well as compute implied volatility or implied stock price given the other parameters. The app also provides visualizations and the calculation of option Greeks.",
+    "technologies": ["Plotly", "Flask", "Python"],
+    "githubUrl": "https://github.com/BillDFrank/Option-Price-Calculator",
+    "categories": ["Web App"],
+    "date": "2025-02-01",
     "status": "completed",
-    "link": "/jupyter-notebook"
+    "link": "/projects/option-price-calculator",
   },
-  {
-    "id": "portfolio-website",
-    "title": "Portfolio Website",
-    "description": "Modern portfolio website with academic dark theme and comprehensive project showcase.",
-    "technologies": ["Next.js", "TypeScript", "Tailwind CSS", "FastAPI", "PostgreSQL", "Docker"],
-    "githubUrl": "https://github.com/BillDFrank/portfolio",
-    "liveUrl": "https://billdfrank.github.io/portfolio",
-    "category": "Web Development",
-    "date": "2024-02-01",
-    "status": "completed"
-  },
-  {
-    "id": "computer-vision-toolkit",
-    "title": "Computer Vision Toolkit",
-    "description": "Open-source computer vision toolkit with pre-trained models and utilities.",
-    "technologies": ["Python", "OpenCV", "PyTorch", "TensorFlow", "Docker"],
-    "githubUrl": "https://github.com/BillDFrank/cv-toolkit",
-    "category": "Machine Learning",
-    "date": "2023-07-05",
-    "status": "completed"
-  },
-  {
-    "id": "machine-learning-pipeline",
-    "title": "ML Pipeline Framework",
-    "description": "Scalable machine learning pipeline for data preprocessing, training, and deployment.",
-    "technologies": ["Python", "Scikit-learn", "MLflow", "Apache Airflow", "Docker"],
-    "githubUrl": "https://github.com/BillDFrank/ml-pipeline",
-    "category": "Machine Learning",
-    "date": "2023-11-15",
-    "status": "completed"
-  },
-  {
-    "id": "infrastructure-automation",
-    "title": "Infrastructure as Code",
-    "description": "Automated infrastructure deployment using Terraform and Ansible.",
-    "technologies": ["Terraform", "Ansible", "AWS", "Docker", "Kubernetes"],
-    "githubUrl": "https://github.com/BillDFrank/infrastructure-automation",
-    "category": "Infrastructure",
-    "date": "2024-01-10",
-    "status": "in-progress"
-  }
 ];

@@ -16,18 +16,7 @@ export default function Home() {
       tags: ["Python", "PyTorch", "Streamlit", "Transformers", "Hugging Face", "Scikit-learn"],
       link: "https://github.com/BillDFrank/document-classifier",
     },
-    {
-      title: "Data Pipeline System",
-      description: "Scalable data processing pipeline for real-time analytics and machine learning.",
-      tags: ["Python", "Apache Kafka", "Docker"],
-      link: "/projects/data-pipeline",
-    },
-    {
-      title: "Portfolio Website",
-      description: "Modern portfolio website built with Next.js and academic dark theme design.",
-      tags: ["Next.js", "TypeScript", "Tailwind CSS"],
-      link: "/projects/portfolio",
-    },
+
   ];
 
   return (
